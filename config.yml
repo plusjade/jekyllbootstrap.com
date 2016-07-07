@@ -1,0 +1,56 @@
+---
+RuhohSpec: '2.0.alpha'
+
+production_url: http://ruhoh.com
+
+"theme-ruhoh" : 
+  use : "theme"
+
+
+date_format: "%B %d, %Y"
+_root:
+  permalink: "/:relative_path/:filename.html"
+  layout: docs-layout
+  paginator:
+    enable: false
+
+usage:
+  layout: docs-layout
+  permalink: "/:path/:filename.html"
+  sort: ["sort", "asc"]
+  paginator: 
+    enable : false
+
+api:
+  layout: docs-layout
+
+posts:
+  permalink: /blog/:categories/:title/
+
+font:
+  use: "ignore"
+
+asset_pipeline:
+  enable: true
+
+project:
+  "use" : "ignore"
+
+widgets :
+
+  analytics :
+    use : "custom"
+    # -- config for google --
+    # tracking_id : 'UA-123-12'
+
+    # -- config for getclicky  --
+    site_id : 66563918
+
+  comments :
+    use : disqus
+    # -- config for disqus --
+    short_name : jekyllbootstrap # Change This!
+
+  syntax :
+    enable: true
+    use: "prettify"

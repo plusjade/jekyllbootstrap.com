@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | ruhoh universal static blog generator</title>
+  <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  {{# stylesheets.load }}
+    //netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css
+    http://fonts.googleapis.com/css?family=Noto+Sans:400,700
+    font-awesome.min.css
+    style.css
+    google_prettify/sunburst-custom.css
+  {{/ stylesheets.load }}
+
+</head>
+<body class="{{page.sub_layout}}">
+  <div id="nav-toggle">
+    <a href="{{urls.base_path}}" style="position:absolute; top:0;">
+      <i class="icon-home icon-white"></i> home
+    </a>
+    <a href="#"><i class="icon-align-justify icon-white"></i> Menu</a>
+  </div>
+
+  <div id="left-pane">
+    <ul id="toc">
+      <li>
+        <a class="brand" href="{{ urls.base_path }}" style="padding-left:10px">
+          <i class="icon-home icon-white"></i> HOME
+        </a>
+      </li>
+
+      {{# usage.all }}
+      <li class="{{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{ url }}" class="heading">{{ title }}</a>
+      </li>
+      {{/ usage.all }}
+
+      {{# data.docs_nav?to__root }}
+      <li class="{{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{ url }}" class="heading">{{ title }}</a>
+      </li>
+      {{/ data.docs_nav?to__root }}
+    </ul>
+  </div>
+
+  <div id="outline-pane">
+    {{{ widgets.swiftype }}}
+  </div>
+  <div id="novel">
+    <div class="inner">
+      <div id="main-content" class="novel docs layout-{{page.layout}}">
+        <div class="inner">
+          {{{ page.content }}}
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer" style="margin:20px 0">
+      <p>{{> footer_credits }}</p>
+    </footer>
+  </div>
+
+  {{# javascripts.load }}
+    https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js
+    table-of-contents.js
+  {{/ javascripts.load }}
+  <script>
+    $(function() {
+      TocNew.init('#toc','#novel');
+
+      // Personalize install code. 
+      // Make sure to update this whenever landing page changes to ensure proper id values.
+      var Pc = {
+        init : function() {
+          var $codeContainer = $("#step-2-code");
+          var code = $codeContainer.text();
+          var $repoName = $("#repo_name");
+          var $blogLink = $("#blog_link");
+          $("form").first().submit(function(e){
+            var username = $("#github_username").val();
+            $codeContainer.text(code.replace(/USERNAME/g, username));
+            $repoName.text( username + ".github.com");
+            $blogLink.text("http://" + username + ".github.com").attr("href", "http://" + username + ".github.com");
+            if ($.trim(username) !== ""){ 
+              if (typeof mpq !== 'undefined') mpq.track("install", {"username": username });
+              if (typeof _gaq !== 'undefined') _gaq.push(['_trackEvent', 'Forms', 'Input', username]);
+            }  
+            e.preventDefault();
+            return false;
+          })
+        }
+      }
+
+      Pc.init();
+    })
+  </script>
+
+  <!-- syntax should be below-->
+  {{{ widgets.syntax }}}
+  {{{ widgets.analytics }}}
+  
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<div id="left-pane">
+  <ul id="toc">
+    <li>
+      <a class="brand" href="{{urls.base_path}}" style="background-color:#444; padding-left:10px">
+        <i class="icon-home icon-white"></i> HOME
+      </a>
+    </li>
+
+    <li class="docs-2-views">
+      <a href="/docs/2" class="heading">1.&nbsp; START HERE</a>
+    </li>
+
+    <li>
+      <a href="/docs/2#toc_13" class="heading"><i class="icon-sitemap"></i> COLLECTIONS</a>
+    </li>
+    {{#data.docs_2_collections?to_docs}}
+      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{url}}">{{title}}</a>
+      </li>
+    {{/data.docs_2_collections?to_docs}}
+
+    <li class="docs-2-views">
+      <a href="/docs/2/views" class="heading"><i class="icon-exchange"></i> VIEW</a>
+    </li>
+
+    <li class="docs-2-publish">
+      <a href="/docs/2/publish" class="heading"><i class="icon-upload"></i> PUBLISH</a>
+    </li>
+
+    <li>
+      <a href="/docs/2/asset-pipeline" class="heading"><i class="icon-desktop"></i> ASSET PIPELINE</a>
+    </li>
+
+    <li class="docs-2-plugins">
+      <a href="/docs/2/plugins" class="heading"><i class="icon-cogs"></i> PLUGINS</a>
+    </li>
+
+    <li>
+      <a href="/docs/2/widgets" class="heading"><i class="icon-fighter-jet"></i> WIDGETS</a>
+    </li>
+    {{#data.docs_2_extras?to_docs}}
+      <li class="{{ url?to_slug }} {{#is_active_page}}active{{/is_active_page}}">
+        <a href="{{url}}">{{title}}</a>
+      </li>
+    {{/data.docs_2_extras?to_docs}}
+  </ul>
+</div>

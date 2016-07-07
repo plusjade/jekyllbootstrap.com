@@ -1,0 +1,15 @@
+---
+layout: false
+permalink: "/sitemap.txt"
+---
+http://jekyllbootstrap.com/
+http://jekyllbootstrap.com/sitemap.txt
+http://jekyllbootstrap.com/lessons/jekyll-introduction.html
+http://jekyllbootstrap.com/api/template-data-api.html
+http://jekyllbootstrap.com/api/jekyll-liquid-api.html
+http://jekyllbootstrap.com/api/bootstrap-api.html
+http://jekyllbootstrap.com/api/theme-api.html
+http://jekyllbootstrap.com/usage/jekyll-quick-start.html
+http://jekyllbootstrap.com/usage/jekyll-theming.html
+http://jekyllbootstrap.com/usage/blog-configuration.html
+http://jekyllbootstrap.com/usage/deployment-and-hosting.html
