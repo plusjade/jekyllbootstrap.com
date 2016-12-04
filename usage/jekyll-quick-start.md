@@ -37,7 +37,7 @@ Enter these commands into your terminal in a directory you want your blog to be:
 ### 3. Profit
 
 <div>
-  After GitHub has a couple minutes to do its magic your blog will be publicly available at  <a href="http://USERNAME.github.com" id="blog_link">http://USERNAME.github.com</a>
+  After GitHub has a couple minutes to do its magic your blog will be publicly available at  <a href="http://USERNAME.github.io" id="blog_link">http://USERNAME.github.io</a>
 </div>
 
 ### Already have your blog on GitHub?
